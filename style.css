@@ -1,0 +1,203 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+    width: 100%;
+}
+body{
+    background-image: linear-gradient(to bottom, #33a6bb, #FFFFFF);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: black;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+#carpic{
+    height: 10%;
+    width: 10%;
+}
+
+#redcarpic {
+    margin-top: 20px;
+    height: 10%;
+    width: 10%;
+}
+
+#pinkcarpic {
+    margin-top: 35px;
+    height: 10%;
+    width: 10%;
+}
+
+#greencarpic {
+    margin-top: 35px;
+    height: 10%;
+    width: 10%;
+}
+
+.car-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+#head1 {
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 100px;
+    background: linear-gradient(45deg, #ffe75f, #fc0303);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-fill-color: transparent;
+    background-size: cover;
+    background-position: center;
+}
+
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    display: block;
+    margin: 10px auto;
+}
+
+
+/* This is for the start button */
+.b1 {
+    align-items: center;
+    
+    background-image: linear-gradient(45deg, #ffe75f, #fc0303);
+    font-family: "Verdana", 'sans-serif';
+    font-weight: bold;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: #2d2342 0 2px 4px, #2d2342 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    display: block;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 0.5px;
+
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+}
+.b1:focus {
+    box-shadow: #d6d6e7 0 0 0 1.5px inset, #2d2342 0 2px 4px, #2d2342 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+}
+.b1:hover {
+    box-shadow: #2d2342 0 4px 8px, #2d2342 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+.b1:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+/* This is for the Difficulty text */
+#selectDiff {
+    max-width: 250px;
+    align-items: center;
+    margin: 0 auto;
+    background-image: linear-gradient(45deg, #ffe75f, #fc0303);
+    font-family: "Verdana", 'sans-serif';
+    font-weight: bold;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: #2d2342 0 2px 4px, #2d2342 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    display: inline-flex;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 0.5px;
+
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+}
+
+
+#about {
+    width: auto;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+    text-align: center;
+}
+
+.select-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+.select-wrapper label {
+    order: -1;
+    padding-bottom: 10px;
+    margin-left: 65%;
+}
+
+.select-placeholder {
+    position: absolute;
+    left: 10px; /* Adjust based on padding of select */
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Allows clicks to pass through to the select */
+    
+    /* Hide when select is focused or an option is selected */
+    opacity: 0; 
+    text-align: center;
+}
+select:focus + .select-placeholder,
+select:valid + .select-placeholder {
+    display: none;
+}

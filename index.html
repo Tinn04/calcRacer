@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalcRacer</title>
+    <!-- Add your CSS files here -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Add additional meta tags, styles, or scripts here -->
+</head>
+<body>
+    <h1 id = "head1"> Calc Racer </h1>
+
+    <div class = "car-container">
+        <img src = "cars/car img.png" id = "carpic">
+
+        <img src = "cars/red car img.png" id = "redcarpic">
+        <img src = "cars/pink car img.png" id = "pinkcarpic">
+        <img src = "cars/green car img.png" id = "greencarpic">
+    </div>
+
+    <div class="center-container">
+        <button class = "b1" onclick = "start()"> Start </button>
+        <label for="difficulty" id = "selectDiff">Select a Difficulty</label>
+        <div class="select-wrapper">
+            
+            <select name="difficulty" id="difficulty" required>
+                <option value="" disabled selected></option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+            <label for="difficulty" class="select-placeholder">Difficulty</label>
+        </div>
+        
+        <a href = "about.html" id = "about"> About us </a>
+
+        <script src="starter.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </div>
+</body>
+
+
+</html>
