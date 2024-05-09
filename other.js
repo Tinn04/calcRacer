@@ -6,23 +6,23 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const app = express();
-const port = 6969;
+const port = 5000;
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// the API key (should be in a secure location under regular circumstances)
-OPENAI_API_KEY = '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'
+// // the API key (should be in a secure location under regular circumstances)
+// OPENAI_API_KEY = 'sk-proj-cCyxCr0yo0j3uaZSoyIsT3BlbkFJFUyX1HH4cHz6bl90YobM';
 
-// creating a configuration object to authenticate requests using the OpenAI key
-const configuration = new Configuration({
-  apiKey: OPENAI_API_KEY,
-});
+// // creating a configuration object to authenticate requests using the OpenAI key
+// const configuration = new Configuration({
+//   apiKey: OPENAI_API_KEY,
+// });
 
-// data transfer and shi
-const openai = new OpenAIApi(configuration);
-app.post("/data", async (req, res) => {
+// // data transfer and shi
+// const openai = new OpenAIApi(configuration);
+app.post("/data", (req, res) => {
   try {
     res.send("reeters");
   } catch (error) {
@@ -30,27 +30,27 @@ app.post("/data", async (req, res) => {
   }
 });
 
-// app.listen(port, () => {
-//   console.log('Server running on port ' + port);
-// });
+app.listen(port, () => {
+  console.log('Server running on port ' + port);
+});
 
 // provide prompt to ChatGPT and get response
 const userInput = "give a random differentiable expression in plain text";
-async function getResponse() {
-  const response = await openai.chat.completions.create({
-    messages: [
-      {
-        role: "user",
-        content: `${userInput}`,
-      },
-    ],
-    model: "gpt-3.5-turbo",
-  });
+// async function getResponse() {
+//   const response = await openai.chat.completions.create({
+//     messages: [
+//       {
+//         role: "user",
+//         content: `${userInput}`,
+//       },
+//     ],
+//     model: "gpt-3.5-turbo",
+//   });
 
-  let data = response.choices[0].message.content;
-  // output response to console
-  return data.slice(data.indexOf('=')+1);
-};
+//   let data = response.choices[0].message.content;
+//   // output response to console
+//   return data.slice(data.indexOf('=')+1);
+// };
 
 // Function to generate a random simple derivative question
 function generateDerivativeEasy() {
@@ -92,9 +92,9 @@ var questionsMed = [
 ];
 
 for ( var i = 0; i < 5; i++ ) {
-  getResponse().then((value) => {
-    console.log(value);
-  });
+  // getResponse().then((value) => {
+  //   console.log(value);
+  // });
 }
 
 // preload hard questions and store
