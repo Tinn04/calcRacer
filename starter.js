@@ -1,53 +1,51 @@
-var qToAnsMap = {};
-var keys = [];
-var counter = 0;
 
-window.onload = (event) => {
-  let sentData = {};
+let sentData = {};
+
+let questionsList = ["Derivative of e^x^2", "Integral of 1/(x+1)", "Integral of 1/(x^2+1)", "Derivative of 12x^4 + 3x", "Integral of 2x^6", "Derivative of sin(2x)", "Integral of sin(2x)", "Derivative of x^16 + 12"];
+
+//let answersList = ["2xe^x^2", ]
+
+  //Display the math equation on the website screen
+
+function start() {
+  
+  document.querySelector('.b1').style.display = 'none';
+  document.querySelector('#selectDiff').style.display = 'none';
+  document.querySelector('#difficulty').style.display = 'none';
 
   $.ajax({
-    url: 'http://127.0.0.1:5000/data',
-    type: 'POST',
-    contentType: 'application/json',
-    data: JSON.stringify(sentData),
-    success: function (response) {
-      populate(response);
-      runGame();
-    },
-    error: function (xhr, status, error) {
-      // Handle error
-      console.error('Error occurred:', xhr.responseText);
+      url: 'http://127.0.0.1:6969/data',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify(sentData),
+      success: function(response) {
+        // Handle success
+        sentData = response.equations;
+      },
+      error: function(xhr, status, error) {
+        // Handle error
+        console.error('Error occurred:', xhr.responseText);
+      }
+    });
+
+
+    const selectElement = document.querySelector('#difficulty');
+    if (selectElement.value === "easy") {
+      easyMode();
+    } else {
+      hardMode();
     }
-  });
 }
 
-// fill global map with data fetched from API
-function populate(response) {
-  qToAnsMap["ln(x)"] = "1/x";
-  qToAnsMap["tan(x)"] = "(sec(x))^2";
-  qToAnsMap["sin(x)"] = "cos(x)";
 
-  keys = Object.keys(qToAnsMap);
-  console.log(keys.length);
+function easyMode() {
+
 }
 
-//Display the math equation on the website screen
-function runGame() {
-    let userAns = prompt("What is the derivative of " + keys[counter] + "?");
-    fetch("http://127.0.0.1:6969/data", {
-      method: 'POST', 
-      headers: {
-        'Content-Type' : 'application/json'
-      }, 
-      body: JSON.stringify({ans : qToAnsMap[keys[counter]], user : userAns})
-    }).then((r) => r.text())
-      .then((data) => {
-        console.log(data);
-        if (counter < keys.length) {
-          runGame();
-        } else {
-          alert("Done!");
-        }
-      });
-    counter++;
+function hardMode() {
+
+}
+
+function genCalcProblem(){
+    
 }
